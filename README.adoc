@@ -1,0 +1,32 @@
+git-svn-why
+-----------
+
+git svn Where the Hell is the dependencY
+
+aka, why are there so many svn externs?
+Why?
+
+Well, while that question will never be answered at least there should be a
+quick way to setup a repo with svn externs and pretend that they don't exist.
+
+What does it do?
+~~~~~~~~~~~~~~~~
+
+Given a repository path in an svn repo, the root of the svn repo, and an output
+dir it gathers up the repository and all transitive dependencies (via
+waaaaaaaaaayyyy too many svn externs) together. Then it checks out all
+repositories with git-svn, limiting history to 50 commits to keep that operation
+going at a reasonable pace.
+Once all sub-repos are checked out, then it adds symbolic links in place of all
+svn externs.
+
+Some effort to combine multiple copies of svn sub-repos is done.
+It mostly works and seems to work slightly better than some of the other svn-ext
+tools, but I'm not going to say it works well.
+
+
+LICENSE
+-------
+
+I hope no one else needs this software (heck, I wish I didn't need it), but if you do,
+this code is available under the MIT license.
